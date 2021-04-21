@@ -1,16 +1,34 @@
-# This is a sample Python script.
+from tkinter import *
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def display_mactime(frame, scrollbar):
+    mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100, height=5, bg="white", fg="black")
+    for line in range(100):
+        mylist.insert(END,
+                      "Thu Aug 21 2003 01:20:38      512       m.c.       -/-rwxrwxrwx     0        0        4        /file1.dat")
 
+    mylist.pack(side=LEFT, fill=BOTH)
+    scrollbar.config(command=mylist.yview)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def build_gui():
+    #Mactime variables go here
+    root = Tk()
+    # Code to add widgets will go here...
 
+    scrollbar = Scrollbar(root)
+    scrollbar.pack(side = RIGHT, fill = Y)
 
-# Press the green button in the gutter to run the script.
+    back = Frame(root)
+    back.pack(expand=True)
+
+    display_mactime(back, scrollbar)
+
+    root.mainloop()
+
+def parse_table():
+    print("Here you go Steve")
+
+def main():
+    build_gui()
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
