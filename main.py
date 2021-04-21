@@ -1,5 +1,8 @@
 from tkinter import *
 
+def parse_table():
+    print("Here you go Steve")
+
 def display_mactime(frame, scrollbar):
     mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100, height=5, bg="white", fg="black")
     for line in range(100):
@@ -23,9 +26,6 @@ def build_gui():
     display_mactime(back, scrollbar)
 
     root.mainloop()
-
-def parse_table():
-    print("Here you go Steve")
 
 def main():
     build_gui()
