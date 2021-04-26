@@ -23,7 +23,7 @@ def content_reader(path):
     return content_lis
 
 def display_mactime(frame, scrollbar):
-    content_lis = mactime_reader.content_reader(path)
+    content_lis = content_reader(path)
     mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100, height=5, bg="white", fg="black")
     for line in content_lis:
         mylist.insert(END,line)
