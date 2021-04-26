@@ -91,11 +91,32 @@ def parse_table(root, frame):
 
     variable.trace("w", callback)
 
+    
+def content_reader(path):
+    f = open(path)
+    line = f.readline()
+    content_lis=[]
+    adate = ''
+    while line:
+        strlis = line.split()
+        entri_lis = []
+        if(len(strlis) >= 12):
+            adate = '_'.join([i for i in strlis[:5]])
+            acontent = ' '.join([i for i in strlis])
+        else:
+            acontent = ' '.join([i for i in strlis])
+            acontent = adate + ' ' + acontent
+        content_lis.append(acontent)
+        line = f.readline()
+    f.close()
+    return content_lis
 
-def display_mactime(frame, scrollbar):
+
+def display_mactime(frame, scrollbar, path):
+    content_lis = content_reader(path)
     mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100, height=5, bg="white", fg="black")
-    for line in range(100):
-        mylist.insert(END, mac_entry)
+    for line in content_lis:
+        mylist.insert(END,line)
 
     mylist.pack(side=LEFT, fill=BOTH)
     scrollbar.config(command=mylist.yview)
