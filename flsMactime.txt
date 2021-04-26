@@ -1,0 +1,96 @@
+Xxx Xxx 00 0000 00:00:00        0 ...b -/drwx------ 0        0        11       /$OrphanFiles/OrphanFile-11 (deleted)
+                                0 ...b -/drwx------ 1000     1000     15361    /$OrphanFiles/OrphanFile-15361 (deleted)
+                                0 ...b -/rrw-r--r-- 1000     1000     15362    /$OrphanFiles/OrphanFile-15362 (deleted)
+                                0 ...b -/rrw-r--r-- 1000     1000     15363    /$OrphanFiles/OrphanFile-15363 (deleted)
+                                0 ...b -/rrw-r--r-- 1000     1000     15364    /$OrphanFiles/OrphanFile-15364 (deleted)
+                                0 ...b -/rrw-r--r-- 1000     1000     15365    /$OrphanFiles/OrphanFile-15365 (deleted)
+                             4096 ...b d/drwxrwxr-x 1001     1001     23041    /Mark
+                             4096 ...b d/drwxrwxr-x 1001     1001     23041    /Untitled Folder 2 (deleted-realloc)
+                             4096 ...b d/drwxrwxr-x 1001     1001     23042    /Mark/Transport
+                           180224 ...b r/rrw-rw---- 1001     1001     23043    /Mark/Transport/Presentation.ppt
+                           180224 ...b r/rrw-rw---- 1001     1001     23043    /Mark/Transport/stuff.doc (deleted-realloc)
+                           180224 ...b r/rrw-rw---- 1001     1001     23043    /Mark/stuff.doc (deleted-realloc)
+                                0 ...b -/drwx------ 1000     1000     30721    /$OrphanFiles/OrphanFile-30721 (deleted)
+                                0 ...b -/rrw-r--r-- 1000     1000     30722    /$OrphanFiles/OrphanFile-30722 (deleted)
+                                0 ...b -/rrw-r--r-- 1000     1000     30723    /$OrphanFiles/OrphanFile-30723 (deleted)
+                                0 ...b -/rrw-r--r-- 1000     1000     30724    /$OrphanFiles/OrphanFile-30724 (deleted)
+                                0 ...b d/drwx------ 1000     1000     38401    /.Trash-1000 (deleted)
+                                0 ...b -/drwx------ 1000     1000     38402    /$OrphanFiles/OrphanFile-38402 (deleted)
+                                0 ...b -/drwx------ 1000     1000     38403    /$OrphanFiles/OrphanFile-38403 (deleted)
+                                0 ...b -/rrw-rw-r-- 1000     1000     38404    /$OrphanFiles/OrphanFile-38404 (deleted)
+                                0 ...b -/rrw-rw-r-- 1000     1000     38405    /$OrphanFiles/OrphanFile-38405 (deleted)
+                                0 ...b -/rrw-rw-r-- 1000     1000     38406    /$OrphanFiles/OrphanFile-38406 (deleted)
+                             4096 ...b d/drwxrwxr-x 1001     1001     46081    /Mark/Finance_Confidential
+                               43 ...b r/rrw-rw-r-- 1001     1001     46082    /Mark/Finance_Confidential/Earning.xls
+                                0 ...b r/rrw-rw-r-- 1000     1000     46083    /Mark/Finance_Confidential/.~lock.Earning.xls# (deleted)
+                             4096 ...b d/drwxrwxr-x 2002     2002     7681     /Frank
+                             4096 ...b d/drwxrwxr-x 2002     2002     7681     /Roger (deleted-realloc)
+                             4096 ...b d/drwxrwxr-x 2002     2002     7681     /Untitled Folder (deleted-realloc)
+                                0 ...b r/rrw-rw---- 2002     2002     7682     /Frank/Appointments.xls
+                                0 ...b l/rrw-rw---- 2002     2002     7682     /Frank/appointments3 (deleted-realloc)
+                               57 ...b l/lrwxrwxrwx 1000     1000     7683     /Frank/appointments4 -> /media/skm/ipar-usb/Mark/Finance_Confidential/Earning.xls (deleted)
+Fri Nov 06 2015 17:11:05        0 .a.. -/rrw-r--r-- 1000     1000     30722    /$OrphanFiles/OrphanFile-30722 (deleted)
+                                0 .a.. -/rrw-r--r-- 1000     1000     30723    /$OrphanFiles/OrphanFile-30723 (deleted)
+                                0 .a.. -/rrw-r--r-- 1000     1000     30724    /$OrphanFiles/OrphanFile-30724 (deleted)
+Fri Nov 06 2015 17:11:09        0 .a.. -/rrw-r--r-- 1000     1000     15362    /$OrphanFiles/OrphanFile-15362 (deleted)
+                                0 .a.. -/rrw-r--r-- 1000     1000     15363    /$OrphanFiles/OrphanFile-15363 (deleted)
+                                0 .a.. -/rrw-r--r-- 1000     1000     15364    /$OrphanFiles/OrphanFile-15364 (deleted)
+                                0 .a.. -/rrw-r--r-- 1000     1000     15365    /$OrphanFiles/OrphanFile-15365 (deleted)
+Fri Nov 06 2015 17:25:21        0 mac. -/rrw-rw-r-- 1000     1000     38404    /$OrphanFiles/OrphanFile-38404 (deleted)
+Fri Nov 06 2015 18:22:17   180224 .a.. r/rrw-rw---- 1001     1001     23043    /Mark/Transport/Presentation.ppt
+                           180224 .a.. r/rrw-rw---- 1001     1001     23043    /Mark/Transport/stuff.doc (deleted-realloc)
+                           180224 .a.. r/rrw-rw---- 1001     1001     23043    /Mark/stuff.doc (deleted-realloc)
+Fri Nov 06 2015 18:22:41     4096 m... d/drwxrwxr-x 1001     1001     23041    /Mark
+                             4096 m... d/drwxrwxr-x 1001     1001     23041    /Untitled Folder 2 (deleted-realloc)
+Fri Nov 06 2015 18:40:53     4096 ..c. d/drwxrwxr-x 1001     1001     23041    /Mark
+                             4096 ..c. d/drwxrwxr-x 1001     1001     23041    /Untitled Folder 2 (deleted-realloc)
+                             4096 ..c. d/drwxrwxr-x 1001     1001     46081    /Mark/Finance_Confidential
+                               43 ..c. r/rrw-rw-r-- 1001     1001     46082    /Mark/Finance_Confidential/Earning.xls
+Fri Nov 06 2015 18:59:20     4096 m.c. d/drwxrwxr-x 2002     2002     7681     /Frank
+                             4096 m.c. d/drwxrwxr-x 2002     2002     7681     /Roger (deleted-realloc)
+                             4096 m.c. d/drwxrwxr-x 2002     2002     7681     /Untitled Folder (deleted-realloc)
+                                0 ma.. r/rrw-rw---- 2002     2002     7682     /Frank/Appointments.xls
+                                0 ma.. l/rrw-rw---- 2002     2002     7682     /Frank/appointments3 (deleted-realloc)
+Fri Nov 06 2015 18:59:39        0 ..c. r/rrw-rw---- 2002     2002     7682     /Frank/Appointments.xls
+                                0 ..c. l/rrw-rw---- 2002     2002     7682     /Frank/appointments3 (deleted-realloc)
+Fri Nov 06 2015 19:02:22     4096 m.c. d/drwxrwxr-x 1001     1001     23042    /Mark/Transport
+Fri Nov 06 2015 19:02:27     4096 .a.. d/drwxrwxr-x 1001     1001     23042    /Mark/Transport
+Fri Nov 06 2015 20:40:40   180224 m.c. r/rrw-rw---- 1001     1001     23043    /Mark/Transport/Presentation.ppt
+                           180224 m.c. r/rrw-rw---- 1001     1001     23043    /Mark/Transport/stuff.doc (deleted-realloc)
+                           180224 m.c. r/rrw-rw---- 1001     1001     23043    /Mark/stuff.doc (deleted-realloc)
+Fri Nov 13 2015 17:32:46        0 .a.. -/drwx------ 1000     1000     38403    /$OrphanFiles/OrphanFile-38403 (deleted)
+                                0 .a.. -/rrw-rw-r-- 1000     1000     38405    /$OrphanFiles/OrphanFile-38405 (deleted)
+                                0 .a.. -/rrw-rw-r-- 1000     1000     38406    /$OrphanFiles/OrphanFile-38406 (deleted)
+Fri Nov 13 2015 17:44:28       43 m... r/rrw-rw-r-- 1001     1001     46082    /Mark/Finance_Confidential/Earning.xls
+Fri Nov 13 2015 17:44:31     4096 m... d/drwxrwxr-x 1001     1001     46081    /Mark/Finance_Confidential
+                                0 mac. r/rrw-rw-r-- 1000     1000     46083    /Mark/Finance_Confidential/.~lock.Earning.xls# (deleted)
+Fri Nov 13 2015 17:44:49        0 .a.. -/drwx------ 0        0        11       /$OrphanFiles/OrphanFile-11 (deleted)
+                                0 .a.. -/drwx------ 1000     1000     15361    /$OrphanFiles/OrphanFile-15361 (deleted)
+                                0 .a.. -/drwx------ 1000     1000     30721    /$OrphanFiles/OrphanFile-30721 (deleted)
+                                0 .a.. d/drwx------ 1000     1000     38401    /.Trash-1000 (deleted)
+                                0 .a.. -/drwx------ 1000     1000     38402    /$OrphanFiles/OrphanFile-38402 (deleted)
+Fri Nov 13 2015 17:47:16        0 m.c. -/drwx------ 0        0        11       /$OrphanFiles/OrphanFile-11 (deleted)
+Fri Nov 13 2015 17:47:31        0 m.c. -/drwx------ 1000     1000     15361    /$OrphanFiles/OrphanFile-15361 (deleted)
+                                0 m.c. -/rrw-r--r-- 1000     1000     15362    /$OrphanFiles/OrphanFile-15362 (deleted)
+                                0 m.c. -/rrw-r--r-- 1000     1000     15363    /$OrphanFiles/OrphanFile-15363 (deleted)
+                                0 m.c. -/rrw-r--r-- 1000     1000     15364    /$OrphanFiles/OrphanFile-15364 (deleted)
+                                0 m.c. -/rrw-r--r-- 1000     1000     15365    /$OrphanFiles/OrphanFile-15365 (deleted)
+                                0 m.c. -/drwx------ 1000     1000     30721    /$OrphanFiles/OrphanFile-30721 (deleted)
+                                0 m.c. -/rrw-r--r-- 1000     1000     30722    /$OrphanFiles/OrphanFile-30722 (deleted)
+                                0 m.c. -/rrw-r--r-- 1000     1000     30723    /$OrphanFiles/OrphanFile-30723 (deleted)
+                                0 m.c. -/rrw-r--r-- 1000     1000     30724    /$OrphanFiles/OrphanFile-30724 (deleted)
+                                0 m.c. d/drwx------ 1000     1000     38401    /.Trash-1000 (deleted)
+                                0 m.c. -/drwx------ 1000     1000     38402    /$OrphanFiles/OrphanFile-38402 (deleted)
+                                0 m.c. -/drwx------ 1000     1000     38403    /$OrphanFiles/OrphanFile-38403 (deleted)
+                                0 m.c. -/rrw-rw-r-- 1000     1000     38405    /$OrphanFiles/OrphanFile-38405 (deleted)
+                                0 m.c. -/rrw-rw-r-- 1000     1000     38406    /$OrphanFiles/OrphanFile-38406 (deleted)
+Fri Nov 13 2015 17:48:32       43 .a.. r/rrw-rw-r-- 1001     1001     46082    /Mark/Finance_Confidential/Earning.xls
+Fri Nov 13 2015 17:57:49       57 m... l/lrwxrwxrwx 1000     1000     7683     /Frank/appointments4 -> /media/skm/ipar-usb/Mark/Finance_Confidential/Earning.xls (deleted)
+Fri Nov 13 2015 17:57:54       57 .a.. l/lrwxrwxrwx 1000     1000     7683     /Frank/appointments4 -> /media/skm/ipar-usb/Mark/Finance_Confidential/Earning.xls (deleted)
+Fri Nov 13 2015 17:58:25       57 ..c. l/lrwxrwxrwx 1000     1000     7683     /Frank/appointments4 -> /media/skm/ipar-usb/Mark/Finance_Confidential/Earning.xls (deleted)
+Fri Nov 13 2015 17:58:50     4096 .a.. d/drwxrwxr-x 2002     2002     7681     /Frank
+                             4096 .a.. d/drwxrwxr-x 2002     2002     7681     /Roger (deleted-realloc)
+                             4096 .a.. d/drwxrwxr-x 2002     2002     7681     /Untitled Folder (deleted-realloc)
+Thu Nov 19 2015 18:46:28     4096 .a.. d/drwxrwxr-x 1001     1001     23041    /Mark
+                             4096 .a.. d/drwxrwxr-x 1001     1001     23041    /Untitled Folder 2 (deleted-realloc)
+Thu Nov 19 2015 18:46:42     4096 .a.. d/drwxrwxr-x 1001     1001     46081    /Mark/Finance_Confidential

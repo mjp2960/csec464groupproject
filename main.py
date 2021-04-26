@@ -134,7 +134,7 @@ def build_gui():
 
     parse_table(root, back)
 
-    display_mactime(back, scrollbar)
+    display_mactime(back, scrollbar, "flsMactime.txt")
 
     root.mainloop()
 
