@@ -1,13 +1,101 @@
 from tkinter import *
 
-def parse_table():
-    print("Here you go Steve")
+mac_entry = "Thu Aug 21 2003 01:20:38      512       m.c.       -/-rwxrwxrwx     0        0        4        /file1.dat"
+
+def parse_table(root, frame):
+    parsing = [
+        "Date/Time",
+        "Size",
+        "Activity Type",
+        "Unix Permissions",
+        "User ID",
+        "Group ID",
+        "inode",
+        "File Name"
+    ]
+    variable = StringVar(root)
+    variable.set("Filter Output")
+
+    parsed = OptionMenu(frame, variable, *parsing)
+    parsed.config(width=20)
+    parsed.pack(side="top")
+
+    listboxTest = Listbox(frame, width=100, height=5, bg="white", fg="black")
+    listboxTest.pack(side="bottom")
+
+    def getDateTime():
+        show_date = mac_entry[0:26]
+        return show_date
+
+    def getSize():
+        show_size = mac_entry[28:34]
+        return show_size
+
+    def getActivityType():
+        show_activity_type = mac_entry[36:46]
+        return show_activity_type
+
+    def getUnixPermissions():
+        show_unix_permissions = mac_entry[49:64]
+        return show_unix_permissions
+
+    def getUserId():
+        show_user_id = mac_entry[68:70]
+        return show_user_id
+
+    def getGroupId():
+        show_group_id = mac_entry[75:78]
+        return show_group_id
+
+    def getInode():
+        show_inode = mac_entry[85:89]
+        return show_inode
+
+    def getFileName():
+        show_file_name = mac_entry[93:107]
+        return show_file_name
+
+    def callback(*args):
+        if variable.get() == "Date/Time":
+            listboxTest.delete(0, END)
+            for _ in range(100):
+                listboxTest.insert(END, getDateTime())
+        elif variable.get() == "Size":
+            listboxTest.delete(0, END)
+            for _ in range(100):
+                listboxTest.insert(END, getSize())
+        elif variable.get() == "Activity Type":
+            listboxTest.delete(0, END)
+            for _ in range(100):
+                listboxTest.insert(END, getActivityType())
+        elif variable.get() == "Unix Permissions":
+            listboxTest.delete(0, END)
+            for _ in range(100):
+                listboxTest.insert(END, getUnixPermissions())
+        elif variable.get() == "User ID":
+            listboxTest.delete(0, END)
+            for _ in range(100):
+                listboxTest.insert(END, getUserId())
+        elif variable.get() == "Group ID":
+            listboxTest.delete(0, END)
+            for _ in range(100):
+                listboxTest.insert(END, getGroupId())
+        elif variable.get() == "inode":
+            listboxTest.delete(0, END)
+            for _ in range(100):
+                listboxTest.insert(END, getInode())
+        elif variable.get() == "File Name":
+            listboxTest.delete(0, END)
+            for _ in range(100):
+                listboxTest.insert(END, getFileName())
+
+    variable.trace("w", callback)
+
 
 def display_mactime(frame, scrollbar):
     mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100, height=5, bg="white", fg="black")
     for line in range(100):
-        mylist.insert(END,
-                      "Thu Aug 21 2003 01:20:38      512       m.c.       -/-rwxrwxrwx     0        0        4        /file1.dat")
+        mylist.insert(END, mac_entry)
 
     mylist.pack(side=LEFT, fill=BOTH)
     scrollbar.config(command=mylist.yview)
@@ -22,6 +110,8 @@ def build_gui():
 
     back = Frame(root)
     back.pack(expand=True)
+
+    parse_table(root, back)
 
     display_mactime(back, scrollbar)
 
