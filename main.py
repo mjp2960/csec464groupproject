@@ -21,7 +21,7 @@ def parse_table(root, frame, scrollbar):
     parsed.pack(side="top")
 
     listboxTest = Listbox(frame, yscrollcommand=scrollbar.set, width=100, height=5, bg="white", fg="black")
-    listboxTest.pack(side=LEFT)
+    listboxTest.pack(side=LEFT, fill=BOTH, expand=TRUE)
     scrollbar.config(command=listboxTest.yview)
 
     def getDateTime():
@@ -119,7 +119,7 @@ def display_mactime(frame, scrollbar, path):
     for line in content_lis:
         mylist.insert(END,line)
 
-    mylist.pack(side=LEFT, fill=BOTH)
+    mylist.pack(side=LEFT, fill=BOTH, expand=TRUE)
     scrollbar.config(command=mylist.yview)
 
 def build_gui():
@@ -128,10 +128,11 @@ def build_gui():
     # Code to add widgets will go here...
 
     root.title("Mactime Beautifier")
-    root.resizable(FALSE, TRUE)
+    root.resizable(TRUE, TRUE)
 
     back = Frame(root)
-    back.pack(expand=True, fill=Y, anchor="w")
+    back.pack(expand=True, fill=BOTH)
+
 
     scrollbar = Scrollbar(back)
 
@@ -143,7 +144,7 @@ def build_gui():
     # Creates filter listbox
     parse_table(root, bottom, scrollbar_bottom)
 
-    bottom.pack(side=BOTTOM)
+    bottom.pack(side=BOTTOM, fill=BOTH)
     scrollbar.pack(side=RIGHT, fill=Y)
     scrollbar_bottom.pack(side=RIGHT, fill=Y)
 
