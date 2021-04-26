@@ -2,7 +2,7 @@ from tkinter import *
 
 mac_entry = "Thu Aug 21 2003 01:20:38      512       m.c.       -/-rwxrwxrwx     0        0        4        /file1.dat"
 
-def parse_table(root, frame):
+def parse_table(root, frame, scrollbar):
     parsing = [
         "Date/Time",
         "Size",
@@ -20,8 +20,9 @@ def parse_table(root, frame):
     parsed.config(width=20)
     parsed.pack(side="top")
 
-    listboxTest = Listbox(frame, width=100, height=5, bg="white", fg="black")
-    listboxTest.pack(side="bottom")
+    listboxTest = Listbox(frame, yscrollcommand=scrollbar.set, width=100, height=5, bg="white", fg="black")
+    listboxTest.pack(side=LEFT)
+    scrollbar.config(command=listboxTest.yview)
 
     def getDateTime():
         show_date = mac_entry[0:26]
@@ -126,15 +127,28 @@ def build_gui():
     root = Tk()
     # Code to add widgets will go here...
 
-    scrollbar = Scrollbar(root)
-    scrollbar.pack(side = RIGHT, fill = Y)
+    root.title("Mactime Beautifier")
+    root.resizable(FALSE, TRUE)
 
     back = Frame(root)
-    back.pack(expand=True)
+    back.pack(expand=True, fill=Y, anchor="w")
 
-    parse_table(root, back)
+    scrollbar = Scrollbar(back)
+
+    # Frame used to hold filter listbox and scrollbar
+    bottom = Frame(root)
+
+    scrollbar_bottom = Scrollbar(bottom)
+
+    # Creates filter listbox
+    parse_table(root, bottom, scrollbar_bottom)
+
+    bottom.pack(side=BOTTOM)
+    scrollbar.pack(side=RIGHT, fill=Y)
+    scrollbar_bottom.pack(side=RIGHT, fill=Y)
 
     display_mactime(back, scrollbar, "flsMactime.txt")
+
 
     root.mainloop()
 
