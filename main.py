@@ -100,22 +100,34 @@ def content_reader(path):
     adate = ''
     while line:
         strlis = line.split()
-        entri_lis = []
         if(len(strlis) >= 12):
-            adate = '_'.join([i for i in strlis[:5]])
-            acontent = ' '.join([i for i in strlis])
+            adate = ' '.join([i for i in strlis[:5]])
+            strlis = strlis[5:]
+            afile = ''.join([i for i in strlis[6:]])
+            strlis = strlis[:6]
+            acontent = ''.join([atab(i) for i in strlis])
+            acontent = atab(adate) + acontent + atab(afile)
         else:
-            acontent = ' '.join([i for i in strlis])
-            acontent = adate + ' ' + acontent
+            afile = ''.join([i for i in strlis[6:]])
+            strlis = strlis[:6]
+            acontent = ''.join([atab(i) for i in strlis])
+            acontent = atab(adate) + acontent + atab(afile)
         content_lis.append(acontent)
         line = f.readline()
     f.close()
     return content_lis
 
+# try make tab in window
+def atab(s):
+    leng = len(s)
+    if (leng < 3):
+        leng += 3
+    tb = ((leng//4)+1)*4
+    return s.ljust(tb)
 
 def display_mactime(frame, scrollbar, path):
     content_lis = content_reader(path)
-    mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100, height=5, bg="white", fg="black")
+    mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100, height=5, bg="white", fg="black",font=("DejaVu Sans Mono",9))
     for line in content_lis:
         mylist.insert(END,line)
 
