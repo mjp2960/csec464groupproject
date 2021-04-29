@@ -207,7 +207,11 @@ def main(argv):
         print("Priority is given to the color coding in the above order.")
         bool_run=False
     if(bool_run):
-        build_gui(file)
+        try:
+            build_gui(file)
+        except:
+            print("\nInvalid input. Ensure that you entered the full path to your file, including the extension.")
+            print("Enter '-h' for help.")
 
 if __name__ == '__main__':
     main(sys.argv[1:])
