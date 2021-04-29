@@ -1,9 +1,8 @@
 from tkinter import *
 
-#depricated?
-mac_entry = "Thu Aug 21 2003 01:20:38      512       m.c.       -/-rwxrwxrwx     0        0        4        /file1.dat"
 
-def parse_table(root, frame, scrollbar):
+def parse_table(root, frame, scrollbar, path):
+    content_list = content_reader(path)
     parsing = [
         "Date/Time",
         "Size",
@@ -26,70 +25,70 @@ def parse_table(root, frame, scrollbar):
     scrollbar.config(command=listboxTest.yview)
 
     def getDateTime():
-        show_date = mac_entry[0:26]
+        show_date = [i.split()[0] for i in content_list]
         return show_date
 
     def getSize():
-        show_size = mac_entry[28:34]
+        show_size = [i.split()[1] for i in content_list]
         return show_size
 
     def getActivityType():
-        show_activity_type = mac_entry[36:46]
+        show_activity_type = [i.split()[2] for i in content_list]
         return show_activity_type
 
     def getUnixPermissions():
-        show_unix_permissions = mac_entry[49:64]
+        show_unix_permissions = [i.split()[3] for i in content_list]
         return show_unix_permissions
 
     def getUserId():
-        show_user_id = mac_entry[68:70]
+        show_user_id = [i.split()[4] for i in content_list]
         return show_user_id
 
     def getGroupId():
-        show_group_id = mac_entry[75:78]
+        show_group_id = [i.split()[5] for i in content_list]
         return show_group_id
 
     def getInode():
-        show_inode = mac_entry[85:89]
+        show_inode = [i.split()[6] for i in content_list]
         return show_inode
 
     def getFileName():
-        show_file_name = mac_entry[93:107]
+        show_file_name = [i.split()[7:] for i in content_list]
         return show_file_name
 
     def callback(*args):
         if variable.get() == "Date/Time":
             listboxTest.delete(0, END)
-            for _ in range(100):
-                listboxTest.insert(END, getDateTime())
+            for line in getDateTime():
+                listboxTest.insert(END, line)
         elif variable.get() == "Size":
             listboxTest.delete(0, END)
-            for _ in range(100):
-                listboxTest.insert(END, getSize())
+            for line in getSize():
+                listboxTest.insert(END, line)
         elif variable.get() == "Activity Type":
             listboxTest.delete(0, END)
-            for _ in range(100):
-                listboxTest.insert(END, getActivityType())
+            for line in getActivityType():
+                listboxTest.insert(END, line)
         elif variable.get() == "Unix Permissions":
             listboxTest.delete(0, END)
-            for _ in range(100):
-                listboxTest.insert(END, getUnixPermissions())
+            for line in getUnixPermissions():
+                listboxTest.insert(END, line)
         elif variable.get() == "User ID":
             listboxTest.delete(0, END)
-            for _ in range(100):
-                listboxTest.insert(END, getUserId())
+            for line in getUserId():
+                listboxTest.insert(END, line)
         elif variable.get() == "Group ID":
             listboxTest.delete(0, END)
-            for _ in range(100):
-                listboxTest.insert(END, getGroupId())
+            for line in getGroupId():
+                listboxTest.insert(END, line)
         elif variable.get() == "inode":
             listboxTest.delete(0, END)
-            for _ in range(100):
-                listboxTest.insert(END, getInode())
+            for line in getInode():
+                listboxTest.insert(END, line)
         elif variable.get() == "File Name":
             listboxTest.delete(0, END)
-            for _ in range(100):
-                listboxTest.insert(END, getFileName())
+            for line in getFileName():
+                listboxTest.insert(END, line)
 
     variable.trace("w", callback)
 
@@ -102,7 +101,7 @@ def content_reader(path):
     while line:
         strlis = line.split()
         if(len(strlis) >= 12):
-            adate = ' '.join([i for i in strlis[:5]])
+            adate = '_'.join([i for i in strlis[:5]])
             strlis = strlis[5:]
             afile = ''.join([i for i in strlis[6:]])
             strlis = strlis[:6]
@@ -155,14 +154,13 @@ def build_gui(file):
     scrollbar_bottom = Scrollbar(bottom)
 
     # Creates filter listbox
-    parse_table(root, bottom, scrollbar_bottom)
+    parse_table(root, bottom, scrollbar_bottom, file)
 
     bottom.pack(side=BOTTOM, fill=BOTH)
     scrollbar.pack(side=RIGHT, fill=Y)
     scrollbar_bottom.pack(side=RIGHT, fill=Y)
 
     display_mactime(back, scrollbar, file)
-
 
     root.mainloop()
 
