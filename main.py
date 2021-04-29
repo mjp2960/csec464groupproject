@@ -1,5 +1,6 @@
 from tkinter import *
 
+#depricated?
 mac_entry = "Thu Aug 21 2003 01:20:38      512       m.c.       -/-rwxrwxrwx     0        0        4        /file1.dat"
 
 def parse_table(root, frame, scrollbar):
@@ -134,7 +135,7 @@ def display_mactime(frame, scrollbar, path):
     mylist.pack(side=LEFT, fill=BOTH, expand=TRUE)
     scrollbar.config(command=mylist.yview)
 
-def build_gui():
+def build_gui(file):
     #Mactime variables go here
     root = Tk()
     # Code to add widgets will go here...
@@ -160,13 +161,19 @@ def build_gui():
     scrollbar.pack(side=RIGHT, fill=Y)
     scrollbar_bottom.pack(side=RIGHT, fill=Y)
 
-    display_mactime(back, scrollbar, "flsMactime.txt")
+    display_mactime(back, scrollbar, file)
 
 
     root.mainloop()
 
-def main():
-    build_gui()
+def main(argv):
+    file=""
+    if(len(argv)==0):
+        print("Mactime Beautifier accepts standardized mactime tables in .txt format.")
+        file = input("Enter the path to your file: ")
+    else:
+        file = argv[0]
+    build_gui(file)
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1:])
