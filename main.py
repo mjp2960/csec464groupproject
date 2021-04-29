@@ -128,8 +128,35 @@ def atab(s):
 def display_mactime(frame, scrollbar, path):
     content_lis = content_reader(path)
     mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100, height=5, bg="white", fg="black",font=("DejaVu Sans Mono",9))
+
+    count=0
+    red_index=[] #file changed (metadata)
+    blue_index=[] #file accessed
+    green_index=[] #file created
+    purple_index=[] # file modified (data)
     for line in content_lis:
+        #print(line[36:40])
+        if(line[39]=='b'):
+            green_index.append(count)
+        elif(line[38]=='c'):
+            red_index.append(count)
+        elif(line[36]=='m'):
+            purple_index.append(count)
+        elif(line[37]=='a'):
+            blue_index.append(count)
         mylist.insert(END,line)
+        count+=1
+
+    for i in red_index:
+        mylist.itemconfig(i, {'fg': "red"})
+    for i in blue_index:
+        mylist.itemconfig(i, {'fg': "blue"})
+    for i in green_index:
+        mylist.itemconfig(i, {'fg': "green"})
+    for i in purple_index:
+        mylist.itemconfig(i, {'fg': "purple"})
+
+
 
     mylist.pack(side=LEFT, fill=BOTH, expand=TRUE)
     scrollbar.config(command=mylist.yview)
@@ -168,10 +195,19 @@ def main(argv):
     file=""
     if(len(argv)==0):
         print("Mactime Beautifier accepts standardized mactime tables in .txt format.")
-        file = input("Enter the path to your file: ")
+        file = input("Enter the path to your file, or '-h' for help: ")
     else:
         file = argv[0]
-    build_gui(file)
+    bool_run=True
+    if(file=='-h'):
+        print("\nMactime Beautifier is a tool for easy sorting and visualization of mactime tables.")
+        print("It accepts a mactime table in text format by system argument or stdio.")
+        print("The output is then sortable by several parameters, and color coded.")
+        print("Green: File Created, Red: File Changed (metadata), Purple: File Modified, Blue: File Accessed.")
+        print("Priority is given to the color coding in the above order.")
+        bool_run=False
+    if(bool_run):
+        build_gui(file)
 
 if __name__ == '__main__':
     main(sys.argv[1:])
