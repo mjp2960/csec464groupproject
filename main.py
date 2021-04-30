@@ -268,8 +268,8 @@ def build_gui(file):
     root.mainloop()
 
 
+# noinspection PyRedundantParentheses
 def main(argv):
-    file = ""
     if(len(argv) == 0):
         print("Mactime Beautifier accepts standardized mactime tables in .txt format.")
         file = input("Enter the path to your file, or '-h' for help: ")
