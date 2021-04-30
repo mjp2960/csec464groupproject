@@ -264,7 +264,7 @@ def build_gui(file):
     # Creates filter listbox
     parse_table(root, bottom, scrollbar_bottom, file)
 
-    bottom.pack(side=BOTTOM, fill=BOTH)
+    bottom.pack(side=BOTTOM, fill=BOTH, expand=True)
     scrollbar.pack(side=RIGHT, fill=Y)
     scrollbar_bottom.pack(side=RIGHT, fill=Y)
 
