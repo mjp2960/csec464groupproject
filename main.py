@@ -1,33 +1,21 @@
 from tkinter import *
 import sys
 
-def color_listbox(content_list, listbox):
-    count = 0
-    red_index = []  # file changed (metadata)
-    blue_index = []  # file accessed
-    green_index = []  # file created
-    purple_index = []  # file modified (data)
+def print_listbox(listbox):
+    for i in enumerate(listbox.get(0, END)):
+        print(i)
 
-    for line in content_list:
-        # print(line[36:40])
-        if(line[39] == 'b'):
-            green_index.append(count)
-        elif(line[38] == 'c'):
-            red_index.append(count)
-        elif(line[36] == 'm'):
-            purple_index.append(count)
-        elif(line[37] == 'a'):
-            blue_index.append(count)
-        count += 1
+def color_listbox(listbox):
+    for i in enumerate(listbox.get(0, END)):
+        if(i[1][39]=='b'):
+            listbox.itemconfig(i[0], {'fg': "green"})
+        elif(i[1][38]=='c'):
+            listbox.itemconfig(i[0], {'fg': "red"})
+        elif(i[1][36]=='m'):
+            listbox.itemconfig(i[0], {'fg': "purple"})
+        elif(i[1][37]=='a'):
+            listbox.itemconfig(i[0], {'fg': "blue"})
 
-    for i in red_index:
-        listbox.itemconfig(i, {'fg': "red"})
-    for i in blue_index:
-        listbox.itemconfig(i, {'fg': "blue"})
-    for i in green_index:
-        listbox.itemconfig(i, {'fg': "green"})
-    for i in purple_index:
-        listbox.itemconfig(i, {'fg': "purple"})
 
 def parse_table(root, frame, scrollbar, path):
     content_list = content_reader(path)
@@ -76,35 +64,42 @@ def parse_table(root, frame, scrollbar, path):
             parsed_list.delete(0, END)
             for line in parse_modified:
                 parsed_list.insert(END, line)
+            color_listbox(parsed_list)
         elif variable1.get() == "Accessed":
             parsed_list.delete(0, END)
             for line in parse_accessed:
                 parsed_list.insert(END, line)
+            color_listbox(parsed_list)
         elif variable1.get() == "Changed":
             parsed_list.delete(0, END)
             for line in parse_changed:
                 parsed_list.insert(END, line)
+            color_listbox(parsed_list)
         elif variable1.get() == "Birth Time":
             parsed_list.delete(0, END)
             for line in parse_birth_time:
                 parsed_list.insert(END, line)
+            color_listbox(parsed_list)
         elif variable1.get() == "Read Permissions":
             parsed_list.delete(0, END)
             for line in parse_read:
                 parsed_list.insert(END, line)
+            color_listbox(parsed_list)
         elif variable1.get() == "Write Permissions":
             parsed_list.delete(0, END)
             for line in parse_write:
                 parsed_list.insert(END, line)
+            color_listbox(parsed_list)
         elif variable1.get() == "Execute Permissions":
             parsed_list.delete(0, END)
             for line in parse_execute:
                 parsed_list.insert(END, line)
+            color_listbox(parsed_list)
         elif variable1.get() == "Reallocated/Deleted":
             parsed_list.delete(0, END)
             for line in parse_reallocated:
                 parsed_list.insert(END, line)
-            color_listbox(content_list, parsed_list)
+            color_listbox(parsed_list)
 
     variable1.trace("w", callback)
 
@@ -162,7 +157,7 @@ def display_mactime(root, frame, scrollbar, path):
     for line in content_list:
         mylist.insert(END, line)
 
-    color_listbox(content_list, mylist)
+    color_listbox(mylist)
 
     mylist.pack(side=LEFT, fill=BOTH, expand=TRUE)
     scrollbar.config(command=mylist.yview)
