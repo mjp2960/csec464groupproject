@@ -1,6 +1,33 @@
 from tkinter import *
 import sys
 
+def color_listbox(content_list, listbox):
+    count = 0
+    red_index = []  # file changed (metadata)
+    blue_index = []  # file accessed
+    green_index = []  # file created
+    purple_index = []  # file modified (data)
+
+    for line in content_list:
+        # print(line[36:40])
+        if(line[39] == 'b'):
+            green_index.append(count)
+        elif(line[38] == 'c'):
+            red_index.append(count)
+        elif(line[36] == 'm'):
+            purple_index.append(count)
+        elif(line[37] == 'a'):
+            blue_index.append(count)
+        count += 1
+
+    for i in red_index:
+        listbox.itemconfig(i, {'fg': "red"})
+    for i in blue_index:
+        listbox.itemconfig(i, {'fg': "blue"})
+    for i in green_index:
+        listbox.itemconfig(i, {'fg': "green"})
+    for i in purple_index:
+        listbox.itemconfig(i, {'fg': "purple"})
 
 def parse_table(root, frame, scrollbar, path):
     content_list = content_reader(path)
@@ -43,6 +70,7 @@ def parse_table(root, frame, scrollbar, path):
     # Parsing file information
     parse_reallocated = [s for s in parse_mac if "deleted" in s.split()[7]]
 
+
     def callback(*args):
         if variable1.get() == "Modified":
             parsed_list.delete(0, END)
@@ -76,6 +104,7 @@ def parse_table(root, frame, scrollbar, path):
             parsed_list.delete(0, END)
             for line in parse_reallocated:
                 parsed_list.insert(END, line)
+            color_listbox(content_list, parsed_list)
 
     variable1.trace("w", callback)
 
@@ -130,32 +159,10 @@ def display_mactime(root, frame, scrollbar, path):
     mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100,
                      height=5, bg="white", fg="black", font=("DejaVu Sans Mono", 9))
 
-    count = 0
-    red_index = []  # file changed (metadata)
-    blue_index = []  # file accessed
-    green_index = []  # file created
-    purple_index = []  # file modified (data)
     for line in content_list:
-        # print(line[36:40])
-        if(line[39] == 'b'):
-            green_index.append(count)
-        elif(line[38] == 'c'):
-            red_index.append(count)
-        elif(line[36] == 'm'):
-            purple_index.append(count)
-        elif(line[37] == 'a'):
-            blue_index.append(count)
         mylist.insert(END, line)
-        count += 1
 
-    for i in red_index:
-        mylist.itemconfig(i, {'fg': "red"})
-    for i in blue_index:
-        mylist.itemconfig(i, {'fg': "blue"})
-    for i in green_index:
-        mylist.itemconfig(i, {'fg': "green"})
-    for i in purple_index:
-        mylist.itemconfig(i, {'fg': "purple"})
+    color_listbox(content_list, mylist)
 
     mylist.pack(side=LEFT, fill=BOTH, expand=TRUE)
     scrollbar.config(command=mylist.yview)
@@ -288,6 +295,7 @@ def main(argv):
             print(
                 "\nInvalid input. Ensure that you entered the full path to your file, including the extension.")
             print("Enter '-h' for help.")
+            print(file)
 
 
 if __name__ == '__main__':
