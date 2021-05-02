@@ -18,6 +18,8 @@ def color_listbox(listbox):
         elif(i[1][37] == 'a'):
             listbox.itemconfig(i[0], {'fg': "blue"})
 
+def empty():
+    pass
 
 def parse_table(root, frame, scrollbar, path):
     content_list = content_reader(path)
@@ -39,9 +41,11 @@ def parse_table(root, frame, scrollbar, path):
     parsed1.config(width=20)
     parsed1.pack(side="top")
 
+    scrollbar.pack(side=RIGHT, fill=Y, anchor="sw")
+
     parsed_list = Listbox(frame, yscrollcommand=scrollbar.set,
                           width=100, height=5, bg="white", fg="black")
-    parsed_list.pack(side=LEFT, fill=BOTH, expand=TRUE)
+    parsed_list.pack(side=BOTTOM, fill=BOTH, expand=TRUE)
     scrollbar.config(command=parsed_list.yview)
 
     parse_mac = [i for i in content_list]
@@ -167,19 +171,47 @@ def build_gui(file):
 
     scrollbar = Scrollbar(back)
 
-    # Frame used to hold filter listbox and scrollbar
+    # Frame used to hold parsing listbox and scrollbar
     bottom = Frame(root)
 
     scrollbar_bottom = Scrollbar(bottom)
 
-    # Creates filter listbox
+    # Creates parsing listbox
     parse_table(root, bottom, scrollbar_bottom, file)
 
     bottom.pack(side=BOTTOM, fill=BOTH, expand=True)
     scrollbar.pack(side=RIGHT, fill=Y)
-    scrollbar_bottom.pack(side=RIGHT, fill=Y)
+
+    # Label for default listbox
+    text = StringVar()
+    mactime_label = Label(back, textvariable=text, anchor="w", justify=LEFT)
+    mactime_label.pack(side=TOP, anchor="w")
+    text.set("|               Data/Time                  |Size|Activity| Permissions | UID | GID | inode |                                File Name                                      |")
+
 
     display_mactime(root, back, scrollbar, file)
+
+    # Sorting buttons for parsing listbox
+    buttons = Frame(bottom)
+    date_time_button = Button(buttons, text='Data/Time')
+    size_button = Button(buttons, text='Size')
+    activity_button = Button(buttons, text='Activity')
+    permissions_button = Button(buttons, text='Permissions')
+    uid_button = Button(buttons, text='UID')
+    gid_button = Button(buttons, text='GID')
+    inode_button = Button(buttons, text='inode')
+    filename_button = Button(buttons, text='File Name')
+
+    date_time_button.pack(side=LEFT)
+    size_button.pack(side=LEFT)
+    activity_button.pack(side=LEFT)
+    permissions_button.pack(side=LEFT)
+    uid_button.pack(side=LEFT)
+    gid_button.pack(side=LEFT)
+    inode_button.pack(side=LEFT)
+    filename_button.pack(side=LEFT)
+
+    buttons.pack(side=TOP, fill=X)
 
     root.mainloop()
 
