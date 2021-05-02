@@ -84,6 +84,10 @@ def sort_mac(listbox, sortby):
     tmp_array.clear()
     final_array.clear()
 
+def empty():
+    pass
+
+
 def parse_table(root, frame, scrollbar, path):
     content_list = content_reader(path)
     activity_type = [
@@ -94,7 +98,8 @@ def parse_table(root, frame, scrollbar, path):
         "Read Permissions",
         "Write Permissions",
         "Execute Permissions",
-        "Reallocated/Deleted"
+        "Reallocated/Deleted",
+        "Original"
     ]
 
     variable1 = StringVar(root)
@@ -176,6 +181,12 @@ def parse_table(root, frame, scrollbar, path):
                 parsed_list.insert(END, macToString(line))
             color_listbox(parsed_list)
             set_current_list(parse_reallocated)
+        elif variable1.get() == "Original":
+            parsed_list.delete(0, END)
+            for line in content_list:
+                parsed_list.insert(END, line)
+            color_listbox(parsed_list)
+            set_current_list(content_list)
 
     variable1.trace("w", callback)
 
@@ -216,8 +227,12 @@ def atab(s):
     tb = ((leng//4)+1)*4
     return s.ljust(tb)
 
-
-def display_mactime(frame, scrollbar, path):
+def display_mactime(root, frame, scrollbar, path):
+    parsing = [
+        'Search ID',
+        'Search Filename',
+        'Search Time'
+    ]
     content_list = content_reader(path)
     mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100,
                      height=5, bg="white", fg="black", font=("DejaVu Sans Mono", 9))
@@ -229,6 +244,18 @@ def display_mactime(frame, scrollbar, path):
 
     mylist.pack(side=LEFT, fill=BOTH, expand=TRUE)
     scrollbar.config(command=mylist.yview)
+
+    variable = StringVar(root)
+    variable.set("Filter")
+
+    parsed = OptionMenu(frame, variable, *parsing)
+    parsed.config(width=20)
+    parsed.pack(side="top")
+
+    def callback(*args):
+        pass
+
+    variable.trace("w", callback)
 
 def build_gui(file):
     # Mactime variables go here
@@ -260,8 +287,7 @@ def build_gui(file):
     mactime_label.pack(side=TOP, anchor="w")
     text.set("|               Data/Time                  |Size|Activity| Permissions | UID | GID | inode |                                File Name                                      |")
 
-
-    display_mactime(back, scrollbar, file)
+    display_mactime(root, back, scrollbar, file)
 
     # Sorting buttons for parsing listbox
     buttons = Frame(bottom)
