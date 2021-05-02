@@ -84,10 +84,6 @@ def sort_mac(listbox, sortby):
     tmp_array.clear()
     final_array.clear()
 
-def empty():
-    pass
-
-
 def parse_table(root, frame, scrollbar, path):
     content_list = content_reader(path)
     activity_type = [
