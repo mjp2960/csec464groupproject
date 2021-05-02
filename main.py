@@ -144,7 +144,7 @@ def atab(s):
     return s.ljust(tb)
 
 
-def display_mactime(root, frame, scrollbar, path):
+def display_mactime(frame, scrollbar, path):
     content_list = content_reader(path)
     mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100,
                      height=5, bg="white", fg="black", font=("DejaVu Sans Mono", 9))
@@ -189,7 +189,7 @@ def build_gui(file):
     text.set("|               Data/Time                  |Size|Activity| Permissions | UID | GID | inode |                                File Name                                      |")
 
 
-    display_mactime(root, back, scrollbar, file)
+    display_mactime(back, scrollbar, file)
 
     # Sorting buttons for parsing listbox
     buttons = Frame(bottom)
