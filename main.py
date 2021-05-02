@@ -1,19 +1,21 @@
 from tkinter import *
 import sys
 
+
 def print_listbox(listbox):
     for i in enumerate(listbox.get(0, END)):
         print(i)
 
+
 def color_listbox(listbox):
     for i in enumerate(listbox.get(0, END)):
-        if(i[1][39]=='b'):
+        if(i[1][39] == 'b'):
             listbox.itemconfig(i[0], {'fg': "green"})
-        elif(i[1][38]=='c'):
+        elif(i[1][38] == 'c'):
             listbox.itemconfig(i[0], {'fg': "red"})
-        elif(i[1][36]=='m'):
+        elif(i[1][36] == 'm'):
             listbox.itemconfig(i[0], {'fg': "purple"})
-        elif(i[1][37]=='a'):
+        elif(i[1][37] == 'a'):
             listbox.itemconfig(i[0], {'fg': "blue"})
 
 
@@ -57,7 +59,6 @@ def parse_table(root, frame, scrollbar, path):
 
     # Parsing file information
     parse_reallocated = [s for s in parse_mac if "deleted" in s.split()[7]]
-
 
     def callback(*args):
         if variable1.get() == "Modified":
@@ -140,16 +141,6 @@ def atab(s):
 
 
 def display_mactime(root, frame, scrollbar, path):
-    parsing = [
-        "Date/Time",
-        "Size (Bytes)",
-        "Activity Type",
-        "Unix Permissions",
-        "User ID",
-        "Group ID",
-        "inode",
-        "File Name"
-    ]
     content_list = content_reader(path)
     mylist = Listbox(frame, yscrollcommand=scrollbar.set, width=100,
                      height=5, bg="white", fg="black", font=("DejaVu Sans Mono", 9))
@@ -161,81 +152,6 @@ def display_mactime(root, frame, scrollbar, path):
 
     mylist.pack(side=LEFT, fill=BOTH, expand=TRUE)
     scrollbar.config(command=mylist.yview)
-
-    variable = StringVar(root)
-    variable.set("Filter Output")
-
-    parsed = OptionMenu(frame, variable, *parsing)
-    parsed.config(width=20)
-    parsed.pack(side="top")
-
-    def getDateTime():
-        show_date = [i.split()[0] for i in content_list]
-        return show_date
-
-    def getSize():
-        show_size = [i.split()[1] for i in content_list]
-        return show_size
-
-    def getActivityType():
-        show_activity_type = [i.split()[2] for i in content_list]
-        return show_activity_type
-
-    def getUnixPermissions():
-        show_unix_permissions = [i.split()[3] for i in content_list]
-        return show_unix_permissions
-
-    def getUserId():
-        show_user_id = [i.split()[4] for i in content_list]
-        return show_user_id
-
-    def getGroupId():
-        show_group_id = [i.split()[5] for i in content_list]
-        return show_group_id
-
-    def getInode():
-        show_inode = [i.split()[6] for i in content_list]
-        return show_inode
-
-    def getFileName():
-        show_file_name = [i.split()[7:] for i in content_list]
-        return show_file_name
-
-    def callback(*args):
-        if variable.get() == "Date/Time":
-            mylist.delete(0, END)
-            for line in getDateTime():
-                mylist.insert(END, line)
-        elif variable.get() == "Size (Bytes)":
-            mylist.delete(0, END)
-            for line in getSize():
-                mylist.insert(END, line)
-        elif variable.get() == "Activity Type":
-            mylist.delete(0, END)
-            for line in getActivityType():
-                mylist.insert(END, line)
-        elif variable.get() == "Unix Permissions":
-            mylist.delete(0, END)
-            for line in getUnixPermissions():
-                mylist.insert(END, line)
-        elif variable.get() == "User ID":
-            mylist.delete(0, END)
-            for line in getUserId():
-                mylist.insert(END, line)
-        elif variable.get() == "Group ID":
-            mylist.delete(0, END)
-            for line in getGroupId():
-                mylist.insert(END, line)
-        elif variable.get() == "inode":
-            mylist.delete(0, END)
-            for line in getInode():
-                mylist.insert(END, line)
-        elif variable.get() == "File Name":
-            mylist.delete(0, END)
-            for line in getFileName():
-                mylist.insert(END, line)
-
-    variable.trace("w", callback)
 
 
 def build_gui(file):
