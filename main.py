@@ -180,7 +180,7 @@ def parse_table(root, frame, scrollbar, path):
         elif variable1.get() == "Original":
             parsed_list.delete(0, END)
             for line in content_list:
-                parsed_list.insert(END, line)
+                parsed_list.insert(END, macToString(line))
             color_listbox(parsed_list)
             set_current_list(content_list)
 
